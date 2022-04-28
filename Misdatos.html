@@ -82,87 +82,92 @@
               </div-->
         </header>
         <!-- Section-->
-        <main>
-            <br>
-            <form>
+        <div class="container ">
+            <div class= "row justify-content-center">
+            <div class="col">
+            <main>
                 <br>
-                <br>
-                <div class="col-6 mb-6">
-                <h4>Mis Datos</h4><br>
-                    <div class="">
-                    <label for="inputName" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" placeholder="" aria-label="First name" required>
+                <form>
+                    <br>
+                    <br>
+                    <div class="col-6 mb-6">
+                    <h4>Mis Datos</h4><br>
+                        <div class="">
+                        <label for="inputName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" placeholder="" aria-label="First name" required>
+                        </div>
+                        <div class="">
+                        <label for="inputLastName" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" placeholder="" aria-label="Last name" required>
+                        </div>
                     </div>
-                    <div class="">
-                    <label for="inputLastName" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" placeholder="" aria-label="Last name" required>
+                    <div class="col-6 mb-6">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text"></div>
+                        </div>
+                    <div class="col-6 mb-6">
+                    <label for="exampleInputUserName" class="form-label">Nombre de Usuario</label>
+                    <label class="visually-hidden" for="autoSizingInputGroup">Nombre de Usuario</label>
+                    <div class="input-group">
+                    <div class="input-group-text">@</div>
+                    <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" required>
+                        </div>
+                        <br>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6 mb-6">
+                    <label for="inputAddress" class="form-label">Dirección</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Calle Numero" required>
+                        </div>
+                    <div class="col-md-6 mb-6">
+                    <label for="inputCity" class="form-label">Ciudad</label>
+                    <input type="text" class="form-control" id="inputCity" required>
+                        </div>
+                    <div class="col-md-6 mb-6">
+                    <label for="inputCity" class="form-label">Localidad</label>
+                    <input type="text" class="form-control" id="inputCity" required>
                     </div>
-                </div>
-                <div class="col-6 mb-6">
-                  <label for="exampleInputEmail1" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                  <div id="emailHelp" class="form-text"></div>
-                      </div>
-                <div class="col-6 mb-6">
-                <label for="exampleInputUserName" class="form-label">Nombre de Usuario</label>
-                <label class="visually-hidden" for="autoSizingInputGroup">Nombre de Usuario</label>
-                <div class="input-group">
-                <div class="input-group-text">@</div>
-                <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" required>
+                    <div class="col-md-6 mb-6">
+                    <label for="inputState" class="form-label">Provincia</label>
+                    <select id="inputState" class="form-select">
+                    <option selected>Elegir...</option>
+                                <option>CABA</option>
+                                <option>Provincia de Buenos Aires</option>
+                                <option>Entre Rios</option>
+                                <option>Santa Fe</option>
+                                <option>Córdoba</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-6">
+                                <label for="inputZip" class="form-label">Codigo Postal</label>
+                                <input type="text" class="form-control" id="inputZip" required>
+                            </div>
+                            </div>
+                    <div class="row d-flex justify-content-center">
+                    <div class="col-md-6 mb-6">
+                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" required>
+                    </div>
+                    <div class="col-md-6 mb-6">
+                        <label for="exampleInputPassword1" class="form-label">Vuelva a ingresar la Contraseña</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" required>
+                    </div>
                     </div>
                     <br>
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-6 mb-6">
-                <label for="inputAddress" class="form-label">Dirección</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Calle Numero" required>
-                    </div>
-                <div class="col-md-6 mb-6">
-                <label for="inputCity" class="form-label">Ciudad</label>
-                <input type="text" class="form-control" id="inputCity" required>
-                    </div>
-                <div class="col-md-6 mb-6">
-                <label for="inputCity" class="form-label">Localidad</label>
-                <input type="text" class="form-control" id="inputCity" required>
-                </div>
-                <div class="col-md-6 mb-6">
-                <label for="inputState" class="form-label">Provincia</label>
-                <select id="inputState" class="form-select">
-                <option selected>Elegir...</option>
-                              <option>CABA</option>
-                              <option>Provincia de Buenos Aires</option>
-                              <option>Entre Rios</option>
-                              <option>Santa Fe</option>
-                              <option>Córdoba</option>
-                            </select>
-                          </div>
-                          <div class="col-md-4 mb-6">
-                            <label for="inputZip" class="form-label">Codigo Postal</label>
-                            <input type="text" class="form-control" id="inputZip" required>
-                          </div>
-                        </div>
-                <div class="row d-flex justify-content-center">
-                <div class="col-md-6 mb-6">
-                  <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" required>
-                </div>
-                <div class="col-md-6 mb-6">
-                    <label for="exampleInputPassword1" class="form-label">Vuelva a ingresar la Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" required>
-                  </div>
-                </div>
-                <br>
-                <div class="mb-6 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Deseo recibir ofertas y novedades</label>
-                </div><br>
-                <button type="submit" class="btn btn-primary">Editar</button>
-                </div>  
-            </form>
+                    <div class="mb-6 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Deseo recibir ofertas y novedades</label>
+                    </div><br>
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                    </div>  
+                </form>
+            </div>
+            </div>
+            <br>
+            </main>
         </div>
         </div>
-        <br>
-        </main>
-        
+    </div>
       
         <!-- End services Area -->
           <!-- Footer-->
