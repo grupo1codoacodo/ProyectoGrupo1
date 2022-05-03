@@ -5,3 +5,8 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+
+function finalizarCompra(){
+    alert ("Gracias por su Compra");
+    location.href = 'https://tpgrupo1codoacodo.netlify.app/';
+}
