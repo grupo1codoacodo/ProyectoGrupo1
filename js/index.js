@@ -1,7 +1,7 @@
 // Pone la cantidad de articulos comprados en el icono del cart
-const CART= document.getElementById ("cantCarrito");
+const cart= document.getElementById ("cantCarrito");
 
-CART.innerHTML = carritost.getCantArticulosComprados();
+cart.innerHTML = carritost.getCantArticulosComprados();
 
 // Muestra en la pagina los cards con los articulos destacados 
 const elemArticulosDestacados= document.getElementById ("articulosdestacados");
@@ -21,7 +21,7 @@ vProductosDestacados.forEach(destacado =>{
     '            <!-- Product name-->  ' +
     '            <h5 class="fw-bolder">' + destacado.codigo + '</h5> ' +
     '            <!-- Product price--> ' +
-    '            ' + destacado.precio  + 
+    '             $' + destacado.precio  + 
     '        </div> ' +
     '    </div> ' + 
     '    <!-- Product actions--> ' +

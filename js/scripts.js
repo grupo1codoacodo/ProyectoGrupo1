@@ -68,14 +68,14 @@ class carrito {
         let bExiste= false;
         // Buscar en la lista para saber si el articulo ya fue comprado y le suma la nueva
         // Cantidad
-        for (prod in articulosComprados){
+        for (i= 0; i < articulosComprados.length ; i++) {
+            prod= articulosComprados[i];
             if (prod.getCodigo() == producto.getCodigo){
                 prod.SetCantidad (prod.getCantidad() + cantidad); 
                 bExiste= true;
                 break;
-            }
-            
-        }
+            }            
+        };
         // Agrega el producto al array de articulos comprados
         if (bExiste == false){
             const articuloComprado= new articuloCarrito(producto, cantidad)
@@ -85,13 +85,14 @@ class carrito {
      //  Borra un articulo del carrito
     delArticulo (codProducto){
         let pos= 0;
-        for (prod in articulosComprados){
+        for (i= 0; i < articulosComprados.length ;i++){
+            prod= articulosComprados[i];
             if (prod.getCodigo() == codProducto){
                 this.articulosComprados.splice(pos);
                 break;
             }
             pos++;            
-        }
+        };
     }
     // Obtiene la cantidad de articulos
     getCantArticulosComprados(){
@@ -100,9 +101,10 @@ class carrito {
      // Obtiene la suma total del importe de los productos comprados en el carrito
     getSumaTotal(){
          let total= 0;
-         for (prod in articulosComprados){
+         for (i= 0; i < articulosComprados.length; i++){
+             prod= articulosComprados[i];
              total += prod.getPrecio() * prod.cantidad;
-         }
+         };
          return total;
     }
 }
