@@ -63,7 +63,7 @@ class carrito {
     }
      // Agregar un articulo al carrito y la cantidad comprada
     static addArticulo(artCarrito){
-        this.articulosComprados= getArticulosCompradosDelStorage();
+        this.articulosComprados= this.getArticulos();
         console.log (this.articulosComprados);
         let bExiste= false;
         // Buscar en la lista para saber si el articulo ya fue comprado y le suma la nueva
@@ -73,6 +73,7 @@ class carrito {
             if (prod.codigo == artCarrito.getCodigo()){
                 prod.cantidad= prod.cantidad + artCarrito.cantidad; 
                 bExiste= true;
+                console.log ("ya existe , nueva cantidad" + prod.cantidad);
                 break;
             }            
         }
@@ -80,37 +81,37 @@ class carrito {
         if (bExiste == false){
             this.articulosComprados.push(artCarrito);
             console.log("agregue articulo");
-            console.log (this.articulosComprados);
-            // Guardo la lista de productos como un string en localstorage
-            localStorage.setItem('carrito', JSON.stringify(this.articulosComprados));
+            console.log (this.articulosComprados);            
             console.log(JSON.stringify(this.articulosComprados));
         }
+        // Guardo la lista de productos como un string en localstorage
+        localStorage.setItem('carrito', JSON.stringify(this.articulosComprados));
     }
      //  Borra un articulo del carrito
     static delArticulo (codProducto){
-        this.articulosComprados= getArticulosCompradosDelStorage();
+        this.articulosComprados= this.getArticulos();
         let pos= 0;
-        for (i= 0; i < articulosComprados.length ;i++){
-            prod= articulosComprados[i];
+        for (i= 0; i < this.articulosComprados.length ;i++){
+            prod= this.articulosComprados[i];
             if (prod.getCodigo() == codProducto){
                 this.articulosComprados.splice(pos);
                 break;
             }
             pos++;            
         };
+        localStorage.setItem('carrito', JSON.stringify(this.articulosComprados));
     }
     // Obtiene la cantidad de articulos
     static getCantArticulosComprados(){
-        this.articulosComprados= getArticulosCompradosDelStorage();
-         return this.articulosComprados.length;
+         return this.getArticulos().length;
     }
      // Obtiene la suma total del importe de los productos comprados en el carrito
     static getSumaTotal(){
+         let vArticulosComprados= this.getArticulos();
          let total= 0;
-         for (i= 0; i < articulosComprados.length; i++){
-             prod= articulosComprados[i];
-             total += prod.getPrecio() * prod.cantidad;
-         };
+         vArticulosComprados.forEach(articulo => {         
+             total += articulo.precio * articulo.cantidad;
+         });
          return total;
     }
 }
@@ -169,7 +170,7 @@ function comprarProducto(codProducto, cantidad){
     let artCarrito= new articuloCarrito(prodComprado,1);
     carrito.addArticulo (artCarrito);
     console.log ("derivo");
-    // location.href= "./carrito.html";
+    location.href= "./carrito.html";
 }
 
 // Obtiene el array de articuloscomprados
