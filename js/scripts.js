@@ -68,7 +68,7 @@ class carrito {
         let bExiste= false;
         // Buscar en la lista para saber si el articulo ya fue comprado y le suma la nueva
         // Cantidad
-        for (i= 0; i < this.articulosComprados.length ; i++) {
+        for (let i= 0; i < this.articulosComprados.length ; i++) {
             prod= this.articulosComprados[i];
             if (prod.codigo == artCarrito.getCodigo()){
                 prod.cantidad= prod.cantidad + artCarrito.cantidad; 
@@ -91,14 +91,16 @@ class carrito {
     static delArticulo (codProducto){
         this.articulosComprados= this.getArticulos();
         let pos= 0;
-        for (i= 0; i < this.articulosComprados.length ;i++){
-            prod= this.articulosComprados[i];
-            if (prod.getCodigo() == codProducto){
-                this.articulosComprados.splice(pos);
+        for (let i= 0; i < this.articulosComprados.length ;i++){
+            let prod= this.articulosComprados[i];
+            if (prod.codigo == codProducto){
+                this.articulosComprados.splice(pos,1);
+                console.log("borro " + codProducto);
                 break;
             }
             pos++;            
         };
+        location.reload();
         localStorage.setItem('carrito', JSON.stringify(this.articulosComprados));
     }
     // Obtiene la cantidad de articulos

@@ -27,7 +27,7 @@ vArticulosCarrito.forEach(articulo =>{
 '    <td class="col-sm-1 col-md-1 text-center"><strong>$' + articulo.precio + '</strong></td>   ' +
 '    <td class="col-sm-1 col-md-1 text-center"><strong>$' + articulo.precio * articulo.cantidad + '</strong></td> ' +
 '    <td class="col-sm-1 col-md-1">     ' +
-'    <button type="button" class="btn btn-danger">  ' +
+'    <button type="button" class="btn btn-danger" onclick="carrito.delArticulo(\'' + articulo.codigo + '\')">  ' +
 '        <span class="glyphicon glyphicon-remove"></span> Eliminar ' +
 '    </button></td> '   +
 '</tr>  ' 
