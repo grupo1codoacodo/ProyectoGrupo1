@@ -100,8 +100,8 @@ class carrito {
             }
             pos++;            
         };
-        location.reload();
         localStorage.setItem('carrito', JSON.stringify(this.articulosComprados));
+        location.reload();
     }
     // Obtiene la cantidad de articulos
     static getCantArticulosComprados(){
