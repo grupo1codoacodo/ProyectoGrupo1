@@ -135,6 +135,10 @@ function cargarProductosEnStorage (){
 
     // Guardo la lista de productos como un string en localstorage
     localStorage.setItem('datos', JSON.stringify(productosSitio));
+
+    // Define el carrito del sitio
+    var carrito= new carrito();
+    
 }
 
 // Obtiene el array de productos del localstorage
@@ -144,8 +148,21 @@ function getProductosDelStorage(){
     return(JSON.parse(guardado));
 }
 
+// Guarda el carrito en el storage
+function saveCarritoEnStorage(){
+    // Guardo el carrito como un string en localstorage
+    localStorage.setItem('carrito', JSON.stringify(carrito));   
+}
+
+// Obtiene el carrito del storage
+function getCarritoFromStorage(){
+    // Guardo el carrito como un string en localstorage
+    return(JSON.parse(localStorage.getItem('carrito')));   
+}
+
 // Emite el alerta al finalizar la compra
 function finalizarCompra(){
     alert ("Gracias por su Compra");
     location.href = 'https://tpgrupo1codoacodo.netlify.app/';
 }
+
