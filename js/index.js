@@ -1,5 +1,5 @@
 // Actualiza con la cantidad de articulos comprados
-actualizarCarrito();
+// actualizarCarrito();
 
 // Muestra en la pagina los cards con los articulos destacados 
 const elemArticulosDestacados= document.getElementById ("articulosdestacados");

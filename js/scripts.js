@@ -57,33 +57,37 @@ class carrito {
       localStorage.setItem('carrito', JSON.stringify(this.articulosComprados));          
     }
     // Getter
-    getArticulos() {
+    static getArticulos() {
        this.articulosComprados= getArticulosCompradosDelStorage();
        return this.articulosComprados;
     }
      // Agregar un articulo al carrito y la cantidad comprada
-    addArticulo(artCarrito){
+    static addArticulo(artCarrito){
         this.articulosComprados= getArticulosCompradosDelStorage();
+        console.log (this.articulosComprados);
         let bExiste= false;
         // Buscar en la lista para saber si el articulo ya fue comprado y le suma la nueva
         // Cantidad
         for (i= 0; i < this.articulosComprados.length ; i++) {
             prod= this.articulosComprados[i];
-            if (prod.codigo == artCarrito.getCodigo){
+            if (prod.codigo == artCarrito.getCodigo()){
                 prod.cantidad= prod.cantidad + artCarrito.cantidad; 
                 bExiste= true;
                 break;
             }            
-        };
+        }
         // Agrega el producto al array de articulos comprados
         if (bExiste == false){
             this.articulosComprados.push(artCarrito);
+            console.log("agregue articulo");
+            console.log (this.articulosComprados);
             // Guardo la lista de productos como un string en localstorage
             localStorage.setItem('carrito', JSON.stringify(this.articulosComprados));
+            console.log(JSON.stringify(this.articulosComprados));
         }
     }
      //  Borra un articulo del carrito
-    delArticulo (codProducto){
+    static delArticulo (codProducto){
         this.articulosComprados= getArticulosCompradosDelStorage();
         let pos= 0;
         for (i= 0; i < articulosComprados.length ;i++){
@@ -96,12 +100,12 @@ class carrito {
         };
     }
     // Obtiene la cantidad de articulos
-    getCantArticulosComprados(){
+    static getCantArticulosComprados(){
         this.articulosComprados= getArticulosCompradosDelStorage();
          return this.articulosComprados.length;
     }
      // Obtiene la suma total del importe de los productos comprados en el carrito
-    getSumaTotal(){
+    static getSumaTotal(){
          let total= 0;
          for (i= 0; i < articulosComprados.length; i++){
              prod= articulosComprados[i];
@@ -149,8 +153,9 @@ function getProductoByCodigo(codProducto){
 // Actualiza la cantidad de articulos en el carrito 
 function actualizarCarrito(){
     // Pone la cantidad de articulos comprados en el icono del cart
-    const cart= document.getElementById ("cantCarrito");
-    cart.innerHTML = carritost.getCantArticulosComprados();
+    const cart= document.getElementsByClassName ("badge")[0];
+    cart.innerHTML = carrito.getCantArticulosComprados();
+    console.log ("Actualizo cantidad del carrito");
 }
 // Emite el alerta al finalizar la compra
 function finalizarCompra(){
@@ -162,9 +167,9 @@ function finalizarCompra(){
 function comprarProducto(codProducto, cantidad){
     prodComprado= getProductoByCodigo(codProducto);
     let artCarrito= new articuloCarrito(prodComprado,1);
-    carritost.addArticulo (artCarrito);
+    carrito.addArticulo (artCarrito);
     console.log ("derivo");
-    location.href= "./carrito.html";
+    // location.href= "./carrito.html";
 }
 
 // Obtiene el array de articuloscomprados
@@ -174,6 +179,5 @@ function getArticulosCompradosDelStorage(){
     return(JSON.parse(guardado));
 }
 
-let vArtComprados= []
-// Define el carrito del sitio
-var carritost= new carrito(vArtComprados);
+// Actualiza el valor del carrito en el header
+actualizarCarrito();
