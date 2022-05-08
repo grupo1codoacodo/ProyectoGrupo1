@@ -94,8 +94,8 @@ class carrito {
         }
     }
     // Obtiene la cantidad de articulos
-    getCantArticulos(){
-         return this.articulosComprados.length();
+    getCantArticulosComprados(){
+         return this.articulosComprados.length;
     }
      // Obtiene la suma total del importe de los productos comprados en el carrito
     getSumaTotal(){
@@ -108,39 +108,6 @@ class carrito {
 }
 
 
-// Carga Los productos del sitio en el localstorage
-function cargarProductosEnStorage (){
-    const productosSitio= [];
-    const ravioles= new articulo ("ravioles", "Ravioles Plancha de 450 gramos",550, 450, "images/raviolesdet.webp", 
-        true
-    );
-
-    productosSitio.push(pizza);
-
-    const tallarines= new articulo ("tallarines", "Tallarines elaborados en el día",430, 430, "images/fideoset.webp", 
-        true
-    );
-
-    productosSitio.push(tallarines);
-
-    const tuco= new articulo ("tuco", "Tuco fileto 400 gramos",250, 250, "images/tucodet.webp", 
-        true
-    );
-    productosSitio.push (tuco);
-
-    const pizza= new articulo ("pizza", "Prepizza elaborada con la mejor harina",380, 380, "images/pizzadet.webp", 
-        true
-    );
-    productosSitio.push (tuco);
-
-    // Guardo la lista de productos como un string en localstorage
-    localStorage.setItem('datos', JSON.stringify(productosSitio));
-
-    // Define el carrito del sitio
-    var carrito= new carrito();
-    
-}
-
 // Obtiene el array de productos del localstorage
 function getProductosDelStorage(){
     var guardado = localStorage.getItem('datos');
@@ -148,18 +115,20 @@ function getProductosDelStorage(){
     return(JSON.parse(guardado));
 }
 
-// Guarda el carrito en el storage
-function saveCarritoEnStorage(){
-    // Guardo el carrito como un string en localstorage
-    localStorage.setItem('carrito', JSON.stringify(carrito));   
+// retorna un array con los productos Destacados
+function getProductosDestacados(){
+    vDestacados= [];
+    const productos= getProductosDelStorage();
+    productos.forEach (prod => {
+        console.log (prod);
+        console.log(prod.codigo + ' ' + prod.isDestacado);
+        if (prod.isDestacado == true){
+            vDestacados.push (prod);
+            console.log (prod);
+        }
+      });
+    return vDestacados;
 }
-
-// Obtiene el carrito del storage
-function getCarritoFromStorage(){
-    // Guardo el carrito como un string en localstorage
-    return(JSON.parse(localStorage.getItem('carrito')));   
-}
-
 // Emite el alerta al finalizar la compra
 function finalizarCompra(){
     alert ("Gracias por su Compra");
