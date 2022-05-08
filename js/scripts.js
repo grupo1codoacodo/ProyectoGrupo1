@@ -36,12 +36,8 @@ class articulo {
 // Articulo agregado al carrito
 class articuloCarrito extends articulo {
     constructor (articulo, cantidad) {
-        this.codigo= articulo.codigo;
-        this.descripcion= articulo.descripcion;
-        this.precio= articulo.precio;
-        this.preciosale= articulo.preciosale;
-        this.imagen= articulo.imagen;
-        this.isDestacado= articulo.destacado;
+        super (articulo.codigo, articulo.descripcion, articulo.precio, articulo.preciosale,
+            articulo.imagen, articulo.destacado);
         this.cantidad= cantidad;
     }
     // Establece la cantidad comprada
@@ -56,34 +52,39 @@ class articuloCarrito extends articulo {
 
 // Clase carrito de compra con los articulos comprados
 class carrito {
-    constructor () {
-      this.articulosComprados = [];            
+    constructor (vArticulosComprados) {
+      this.articulosComprados = vArticulosComprados; 
+      localStorage.setItem('carrito', JSON.stringify(this.articulosComprados));          
     }
     // Getter
     getArticulos() {
+       this.articulosComprados= getArticulosCompradosDelStorage();
        return this.articulosComprados;
     }
      // Agregar un articulo al carrito y la cantidad comprada
-    addArticulo(producto, cantidad){
+    addArticulo(artCarrito){
+        this.articulosComprados= getArticulosCompradosDelStorage();
         let bExiste= false;
         // Buscar en la lista para saber si el articulo ya fue comprado y le suma la nueva
         // Cantidad
-        for (i= 0; i < articulosComprados.length ; i++) {
-            prod= articulosComprados[i];
-            if (prod.getCodigo() == producto.getCodigo){
-                prod.SetCantidad (prod.getCantidad() + cantidad); 
+        for (i= 0; i < this.articulosComprados.length ; i++) {
+            prod= this.articulosComprados[i];
+            if (prod.codigo == artCarrito.getCodigo){
+                prod.cantidad= prod.cantidad + artCarrito.cantidad; 
                 bExiste= true;
                 break;
             }            
         };
         // Agrega el producto al array de articulos comprados
         if (bExiste == false){
-            const articuloComprado= new articuloCarrito(producto, cantidad)
-            this.articulosComprados.push(articuloComprado);
+            this.articulosComprados.push(artCarrito);
+            // Guardo la lista de productos como un string en localstorage
+            localStorage.setItem('carrito', JSON.stringify(this.articulosComprados));
         }
     }
      //  Borra un articulo del carrito
     delArticulo (codProducto){
+        this.articulosComprados= getArticulosCompradosDelStorage();
         let pos= 0;
         for (i= 0; i < articulosComprados.length ;i++){
             prod= articulosComprados[i];
@@ -96,6 +97,7 @@ class carrito {
     }
     // Obtiene la cantidad de articulos
     getCantArticulosComprados(){
+        this.articulosComprados= getArticulosCompradosDelStorage();
          return this.articulosComprados.length;
     }
      // Obtiene la suma total del importe de los productos comprados en el carrito
@@ -122,14 +124,33 @@ function getProductosDestacados(){
     vDestacados= [];
     const productos= getProductosDelStorage();
     productos.forEach (prod => {
-        console.log (prod);
         console.log(prod.codigo + ' ' + prod.isDestacado);
         if (prod.isDestacado == true){
             vDestacados.push (prod);
-            console.log (prod);
         }
       });
     return vDestacados;
+}
+
+// obtiene un producto dado un codigo
+function getProductoByCodigo(codProducto){
+    let productoBuscado;
+    const productos= getProductosDelStorage();
+    for (i= 0; i < productos.length ; i++) {
+        prod= productos[i];
+        if (prod.codigo == codProducto){
+                productoBuscado= prod;
+                break;
+        }            
+    }
+    return productoBuscado;
+}
+
+// Actualiza la cantidad de articulos en el carrito 
+function actualizarCarrito(){
+    // Pone la cantidad de articulos comprados en el icono del cart
+    const cart= document.getElementById ("cantCarrito");
+    cart.innerHTML = carritost.getCantArticulosComprados();
 }
 // Emite el alerta al finalizar la compra
 function finalizarCompra(){
@@ -137,3 +158,22 @@ function finalizarCompra(){
     location.href = 'https://tpgrupo1codoacodo.netlify.app/';
 }
 
+// Agrega un producto al carrito y lo redirecciona a la pagina
+function comprarProducto(codProducto, cantidad){
+    prodComprado= getProductoByCodigo(codProducto);
+    let artCarrito= new articuloCarrito(prodComprado,1);
+    carritost.addArticulo (artCarrito);
+    console.log ("derivo");
+    location.href= "./carrito.html";
+}
+
+// Obtiene el array de articuloscomprados
+function getArticulosCompradosDelStorage(){
+    var guardado = localStorage.getItem('carrito');
+
+    return(JSON.parse(guardado));
+}
+
+let vArtComprados= []
+// Define el carrito del sitio
+var carritost= new carrito(vArtComprados);

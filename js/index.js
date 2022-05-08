@@ -1,7 +1,5 @@
-// Pone la cantidad de articulos comprados en el icono del cart
-const cart= document.getElementById ("cantCarrito");
-
-cart.innerHTML = carritost.getCantArticulosComprados();
+// Actualiza con la cantidad de articulos comprados
+actualizarCarrito();
 
 // Muestra en la pagina los cards con los articulos destacados 
 const elemArticulosDestacados= document.getElementById ("articulosdestacados");
@@ -10,6 +8,8 @@ let htmlDestacados= "" ;
 // Genera un string con los elementos htmls y estilos a agregar por cada destacado
 
 vProductosDestacados.forEach(destacado =>{ 
+    console.log(destacado);
+    console.log(destacado.codigo);
     htmlDestacados += ' ' +
     '<div class="col mb-5"> ' +
     ' <div class="card h-100"> ' +
@@ -26,7 +26,7 @@ vProductosDestacados.forEach(destacado =>{
     '    </div> ' + 
     '    <!-- Product actions--> ' +
     '    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent"> ' +
-    '        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="./carrito.html">Comprar</a></div> ' +
+    '        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="javascript:comprarProducto(\'' +  destacado.codigo + '\',1)">Comprar</a></div> ' +
     '    </div>    ' +
     '  </div>   ' +
     ' </div>    ' ;

@@ -1,5 +1,4 @@
-    // Define el carrito del sitio
-    var carritost= new carrito();
+    
 // Carga Productos y carrito en Localstorage
 function initSite(){
     const productosSitio= [];
