@@ -28,7 +28,7 @@ class usuario {
     // valida el usuario email y clave para el login
     static validarLoginUsuario(usuario,password)
     {
-        datosusuario= localstorage.getItem('usuario')
+        datosusuario= localStorage.getItem('usuario')
         if (datosusuario != null){
             datosusuario= JSON.parse(datosusuario)
         }
