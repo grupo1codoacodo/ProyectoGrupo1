@@ -128,7 +128,11 @@ class carrito {
     // Obtiene la cantidad de articulos
     static getCantArticulosComprados(){
          let vArticulos= this.getArticulos();
-         return vArticulos.length;
+         let cantidad= 0;
+         vArticulos.forEach(articulo=>{
+            cantidad += articulo.cantidad;
+         });
+         return cantidad;
     }
      // Obtiene la suma total del importe de los productos comprados en el carrito
     static getSumaTotal(){
