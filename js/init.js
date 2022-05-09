@@ -8,6 +8,11 @@ function initSite(){
         );
 
         productosSitio.push(ravioles);
+        
+        const pizza= new articulo ("Pizza", "Prepizza elaborada con la mejor harina",380, 380, "images/pizzadet.webp", 
+        true
+        );
+        productosSitio.push (pizza);
 
         const tallarines= new articulo ("Tallarines", "Tallarines elaborados en el día",430, 430, "images/fideosdet.webp", 
             true
@@ -20,10 +25,17 @@ function initSite(){
         );
         productosSitio.push (tuco);
 
-        const pizza= new articulo ("Pizza", "Prepizza elaborada con la mejor harina",380, 380, "images/pizzadet.webp", 
-            true
+        const vianda= new articulo ("Vianda", "Vianda Bajas Calorías 280 cal.",650, 650, "images/vianda.webp", 
+            false
         );
-        productosSitio.push (pizza);
+        productosSitio.push (vianda);
+        
+        const medialunas= new articulo ("Medialunas", "Docena de Medialunas",480, 480, "images/medialunasdocena.webp", 
+           false
+        );
+        productosSitio.push (medialunas);
+    
+        
 
         // Guardo la lista de productos como un string en localstorage
         localStorage.setItem('datos', JSON.stringify(productosSitio));
