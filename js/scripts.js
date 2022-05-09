@@ -5,6 +5,45 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+// clase de Usuario
+class usuario {
+    constructor(nombre, apellido,email, password, username, novedades){
+        this.nombre= nombre;
+        this.apellido= apellido;
+        this.username= username;
+        this.email= email;
+        this.password= password;
+        this.novedades= novedades;
+        this.direccion= "";
+        this.ciudad= "";
+        this.localidad= "";
+        this.provincia= "";
+        this.codpostal= "";
+    }
+    // Guarda el usuario en localstorage
+    registrarUsuario()
+    {
+        localStorage.setItem('usuario', JSON.stringify(this));
+    }
+    // valida el usuario email y clave para el login
+    static validarLoginUsuario(usuario,password)
+    {
+        datosusuario= localstorage.getItem('usuario')
+        if (datosusuario != null){
+            datosusuario= JSON.parse(datosusuario)
+        }
+        if ((usuario.email = datosusuario.email) && (usuario.password= password)){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    // Actualiza los datos del usuario en el localstorage
+    updateUsuario (){
+        localStorage.setItem('usuario', JSON.stringify(this));
+    }
+}
 
 // Clase de un articulo vendible
 class articulo {
