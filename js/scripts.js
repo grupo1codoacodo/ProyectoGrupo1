@@ -131,6 +131,8 @@ class carrito {
          let cantidad= 0;
          vArticulos.forEach(articulo=>{
             cantidad += articulo.cantidad;
+            console.log (cantidad);
+            console.log(articulo.cantidad);
          });
          return cantidad;
     }
