@@ -178,9 +178,15 @@ function comprarProducto(codProducto, cantidad){
 
 // Obtiene el array de articuloscomprados
 function getArticulosCompradosDelStorage(){
-    var guardado = localStorage.getItem('carrito');
-
-    return(JSON.parse(guardado));
+    let guardado = localStorage.getItem('carrito');
+    if (guardado != null){
+       return(JSON.parse(guardado));
+    }
+    else {
+        guardado= [];
+        return guardado;
+        
+    }
 }
 
 // Actualiza el valor del carrito en el header
