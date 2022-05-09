@@ -1,7 +1,7 @@
     
 // Carga Productos y carrito en Localstorage
 function initSite(){
-    if (localStorage.getItem('datos') == null){
+    // if (localStorage.getItem('datos') == null){
         const productosSitio= [];
         const ravioles= new articulo ("Ravioles", "Ravioles Plancha de 450 gramos",550, 450, "images/raviolesdet.webp", 
             true
@@ -39,7 +39,7 @@ function initSite(){
 
         // Guardo la lista de productos como un string en localstorage
         localStorage.setItem('datos', JSON.stringify(productosSitio));
-    }
+    // }
       // Inicializa por primera vez el carrito de productos comprados
     if (localStorage.getItem('carrito') == null){
       let vArticulos= [];
