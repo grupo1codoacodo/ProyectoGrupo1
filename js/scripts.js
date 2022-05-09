@@ -130,9 +130,8 @@ class carrito {
          let vArticulos= this.getArticulos();
          let cantidad= 0;
          vArticulos.forEach(articulo=>{
-            cantidad += articulo.cantidad;
-            console.log (cantidad);
-            console.log(articulo.cantidad);
+            cantidad += parseInt(articulo.cantidad);
+  
          });
          return cantidad;
     }
