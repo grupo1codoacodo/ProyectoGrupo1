@@ -27,8 +27,11 @@ function initSite(){
     // Guardo la lista de productos como un string en localstorage
     localStorage.setItem('datos', JSON.stringify(productosSitio));
 
-    let vArticulos= [];
-    localStorage.setItem('carrito', JSON.stringify(vArticulos));
+      // Inicializa por primera vez el carrito de productos comprados
+    if (localStorage.getItem('carrito') == null){
+      let vArticulos= [];
+      localStorage.setItem('carrito', JSON.stringify(vArticulos));
+    }
 
     // saveCarritoEnStorage(carritost)
 }
