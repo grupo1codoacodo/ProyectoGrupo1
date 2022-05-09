@@ -26,13 +26,17 @@ class usuario {
         localStorage.setItem('usuario', JSON.stringify(this));
     }
     // valida el usuario email y clave para el login
-    static validarLoginUsuario(usuario,password)
+    static validarLoginUsuario(email,password)
     {
         let datosusuario= localStorage.getItem('usuario')
         if (datosusuario != null){
             datosusuario= JSON.parse(datosusuario)
         }
-        if ((usuario.email = datosusuario.email) && (usuario.password= password)){
+        else {
+            datosusuario.email ="";
+            datosusuario.password= "";
+        }
+        if ((email == datosusuario.email) && (datosusuario.password == password)){
             return true;
         }
         else {
