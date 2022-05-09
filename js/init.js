@@ -27,6 +27,8 @@ function initSite(){
     // Guardo la lista de productos como un string en localstorage
     localStorage.setItem('datos', JSON.stringify(productosSitio));
 
+    let vArticulos= [];
+    localStorage.setItem('carrito', JSON.stringify(vArticulos));
 
     // saveCarritoEnStorage(carritost)
 }

@@ -184,8 +184,7 @@ function getArticulosCompradosDelStorage(){
     }
     else {
         guardado= [];
-        return guardado;
-        
+        return guardado;    
     }
 }
 
