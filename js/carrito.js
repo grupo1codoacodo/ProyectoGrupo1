@@ -23,7 +23,7 @@ if (vArticulosCarrito.length > 0){
     '        </div> ' +
     '    </div></td>    ' +
     '    <td class="col-sm-1 col-md-1" style="text-align: center">  ' +
-    '    <input type="email" class="form-control" id="exampleInputEmail1" value="' +  articulo.cantidad + '"> ' +
+    '    <input type="email" class="form-control" onchange="{ carrito.updArticulo(\'' + articulo.codigo + '\',' + 'this.value); location.reload(); }" id="exampleInputEmail1" value="' +  articulo.cantidad + '"> ' +
     '    </td> ' +
     '    <td class="col-sm-1 col-md-1 text-center"><strong>$' + articulo.precio + '</strong></td>   ' +
     '    <td class="col-sm-1 col-md-1 text-center"><strong>$' + articulo.precio * articulo.cantidad + '</strong></td> ' +
@@ -69,4 +69,5 @@ if (vArticulosCarrito.length > 0){
     ' </td>      ' +                          
     '</tr>      ' ;
     elementArticulosCarrito.innerHTML = htmlArticulosCarrito;
+
 }
