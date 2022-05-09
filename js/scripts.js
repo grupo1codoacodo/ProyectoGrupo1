@@ -33,8 +33,7 @@ class usuario {
             datosusuario= JSON.parse(datosusuario)
         }
         else {
-            datosusuario.email ="";
-            datosusuario.password= "";
+            datosusuario= new usuario("","", "","","",false);
         }
         if ((email == datosusuario.email) && (datosusuario.password == password)){
             return true;
