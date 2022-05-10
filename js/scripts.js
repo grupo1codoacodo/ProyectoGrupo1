@@ -23,6 +23,8 @@ class usuario {
     // Guarda el usuario en localstorage
     registrarUsuario()
     {
+        console.log (JSON.stringify(this));
+        console.log(this.nombre);
         localStorage.setItem('usuario', JSON.stringify(this));
     }
     // valida el usuario email y clave para el login
@@ -30,7 +32,10 @@ class usuario {
     {
         let datosusuario= localStorage.getItem('usuario')
         if (datosusuario != null){
-            datosusuario= JSON.parse(datosusuario)
+            datosusuario= JSON.parse(datosusuario);
+            console.log(datosusuario);
+            console.log (email);
+            console.log(password);
         }
         else {
             datosusuario= new usuario("","", "","","",false);

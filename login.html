@@ -65,7 +65,7 @@ s                </div>
         <main>
             <br>
             <div class="container">
-            <form>
+            <form action="javascript:login()">
                 <div class="mb-4">
                     <h4>Ingresar</h4>
                   <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -83,30 +83,33 @@ s                </div>
                 <button type="submit" class="btn btn-primary">Ingresar</button>
                 </form>
                 <br><br>
-                <form>
+                <form action="javascript:registracion()">  
                 <div class="mb-4">
                     <h4>Registracion</h4>
                     <br>
                     <div class="row">
                         <div class="col">
-                          <input type="text" class="form-control" placeholder="Nombre" aria-label="First name">
+                          <input id="nombre" type="text" class="form-control" placeholder="Nombre" aria-label="First name">
                         </div>
                         <div class="col">
-                          <input type="text" class="form-control" placeholder="Apellido" aria-label="Last name">
+                          <input id="apellido" type="text" class="form-control" placeholder="Apellido" aria-label="Last name">
                         </div>
                       </div>
-                    <br>
-                  <label for="exampleInputEmail1" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <p id="valnombreapellido" style="color:red"> Nombre o Apellido no pueden ser vacíos</p>
+                    <!--br-->
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                  <p id="valemail" style="color:red"> Debe ingresar un email</p>
                   <div id="emailHelp" class="form-text"></div>
                     </div>
                 <div class="mb-4">
-                  <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="password">
+                  <p id="valpassword" style="color:red"> Debe ingresar una password</p>
                 </div>
                 <div class="mb-4 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Deseo recibir ofertas y novedades</label>
+                  <input type="checkbox" class="form-check-input" id="novedades">
+                  <label class="form-check-label" for="novedades">Deseo recibir ofertas y novedades</label>
                 </div>
                 <button type="submit" class="btn btn-primary">Registrarme</button>
                 </div>  
@@ -278,6 +281,7 @@ s                </div>
               <!-- Copyright -->
           </footer>
           <script src="js/scripts.js"></script>
+          <script src="js/login.js"></script>
       </body>
   </html>
   
