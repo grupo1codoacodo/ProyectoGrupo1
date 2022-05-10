@@ -23,8 +23,7 @@ class usuario {
     // Guarda el usuario en localstorage
     registrarUsuario()
     {
-        console.log (JSON.stringify(this));
-        console.log(this.nombre);
+
         localStorage.setItem('usuario', JSON.stringify(this));
     }
     // valida el usuario email y clave para el login
