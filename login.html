@@ -65,7 +65,7 @@ s                </div>
         <main>
             <br>
             <div class="container">
-            <form action="javascript:login()">
+            <form id="idlogin">
                 <div class="mb-4">
                     <h4>Ingresar</h4>
                   <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -81,9 +81,9 @@ s                </div>
                   <label class="form-check-label" for="exampleCheck1">Recordar nombre de usuario</label>
                 </div>
                 <button type="submit" class="btn btn-primary">Ingresar</button>
-                </form>
+            </form>
                 <br><br>
-                <form action="javascript:registracion()">  
+            <form onsubmit="registracion()">  
                 <div class="mb-4">
                     <h4>Registracion</h4>
                     <br>

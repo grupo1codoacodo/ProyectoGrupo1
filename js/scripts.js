@@ -234,7 +234,7 @@ function actualizarCarrito(){
 // Emite el alerta al finalizar la compra
 function finalizarCompra(){
     alert ("Gracias por su Compra");
-    location.href = 'https://tpgrupo1codoacodo.netlify.app/';
+    location.href = './index.html';
 }
 
 // Agrega un producto al carrito y lo redirecciona a la pagina

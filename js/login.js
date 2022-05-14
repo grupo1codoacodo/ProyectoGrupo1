@@ -1,19 +1,16 @@
 // Actualiza con la cantidad de articulos comprados
 // actualizarCarrito();
 
+
 // Valida el login de usuario y redirecciona al home si pudo ingresar
 function login(){
     const email= document.getElementById ("exampleInputEmail1").value;
     const password= document.getElementById("exampleInputPassword1").value;
-
+    let bSts= false;
     if (usuario.validarLoginUsuario(email, password) == true){
-        alert ("Bienvenido a San Tallarin - Pudo ingresar Correctamente");
-        location.href="./index.html";
+        bSts= true;
     }
-    else {
-        alert ("El usuario con ese email no existe o la password no es válida");
-    }
-
+    return bSts;
 }
 
 // Valida si los datos del usuario son correctos
@@ -62,3 +59,20 @@ document.getElementById("valnombreapellido").style.visibility="hidden";
 console.log ("ocultando mensajes de validacion")
 document.getElementById("valemail").style.visibility="hidden";
 document.getElementById("valpassword").style.visibility="hidden";
+
+// Agrega una funcion al evento submit
+const formulario= document.getElementById ("idlogin");
+
+// FUNCION DEL EVENTO SUBMIT CON JS
+formulario.addEventListener("submit", (evento) => {
+     // SIEMPRE QUE EJECUTAMOS UN EVENTO DESDE JS CON HTML
+    // DEBEMOS INICIALIZAR EL EVENTO
+    evento.preventDefault();
+    if (login() == true){
+        alert ("Bienvenido a San Tallarin - Pudo ingresar Correctamente");
+        window.location.replace("./index.html");   
+    }
+    else {
+        alert ("El usuario con ese email no existe o la password no es válida");
+    }
+});

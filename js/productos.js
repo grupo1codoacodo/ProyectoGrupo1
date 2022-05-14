@@ -28,7 +28,7 @@ if (vProductos.length > 0){
         '                <!--del class="price-old">$550</del--> ' +
         '            </div> <!-- price-wrap.// --> ' +
         '        </div> ' +
-        '        <a href="javascript:comprarProducto(\'' + producto.codigo + '\',1)" class="btn btn-block btn-primary">Comprar</a> ' +
+        '        <a href="#" onclick="comprarProducto(\'' + producto.codigo + '\',1)" class="btn btn-block btn-primary">Comprar</a> ' +
         '    </figcaption>  ' +
         ' </figure> ' +
         ' </div> <!-- col.// -->    ' ;
