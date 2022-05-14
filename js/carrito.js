@@ -71,3 +71,4 @@ if (vArticulosCarrito.length > 0){
     elementArticulosCarrito.innerHTML = htmlArticulosCarrito;
 
 }
+
