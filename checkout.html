@@ -62,8 +62,247 @@
         </nav>
         <header>
 
+<<<<<<< HEAD
             <main>
             <div class="container px-4 py-5 mx-auto">
+=======
+        <div class="container mx-3 my-3">
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Su Compra</span>
+                <span class="badge badge-secondary badge-pill">3</span>
+              </h4>
+              <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0">Producto</h6>
+                    <small class="text-muted">Pizza Integral</small>
+                  </div>
+                  <span class="text-muted">$1350</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0">Ravioles</h6>
+                    <small class="text-muted">Ravioles Verdura y Pollo</small>
+                  </div>
+                  <span class="text-muted">$760</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 class="my-0">Envío</h6>
+                      <small class="text-muted">Envío por correo argentino</small>
+                    </div>
+                    <span class="text-muted">$500</span>
+                  </li>  
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                  <div class="text-success">
+                    <h6 class="my-0">Código de Promoción</h6>
+                    <small>CODIGOPROMO</small>
+                  </div>
+                  <span class="text-success">-$5</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Total ($)</span>
+                  <strong>$2605</strong>
+                </li>
+              </ul>
+    
+              <form class="card p-2">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Promo code">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary">Aplicar Cupón</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-8 order-md-1">
+              <h4 class="mb-3">Direccion Facturación</h4>
+              <form class="needs-validation" onsubmit="finalizarCompra()" novalidate>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="firstName">Nombre</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                    <div class="invalid-feedback">
+                      Nombre es Requerido.
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="lastName">Apellido</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                    <div class="invalid-feedback">
+                      Ingrese su apellido.
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="mb-3">
+                  <label for="username">Usuario</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">@</span>
+                    </div>
+                    <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    <div class="invalid-feedback" style="width: 100%;">
+                      El usuario es opcional.
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="mb-3">
+                  <label for="email">Email <span class="text-muted">(Opcional)</span></label>
+                  <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                  <div class="invalid-feedback">
+                    Ingrese un mail para notificaciones de envío.
+                  </div>
+                </div>
+    
+                <div class="mb-3">
+                  <label for="address">Dirección</label>
+                  <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                  <div class="invalid-feedback">
+                    Ingrese la dirección de envío.
+                  </div>
+                </div>
+    
+                <div class="mb-3">
+                  <label for="address2">Localidad<span class="text-muted">Opcional</span></label>
+                  <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                </div>
+    
+                <div class="row">
+                  <div class="col-md-5 mb-3">
+                    <label for="country">Provincia</label>
+                    <select class="custom-select d-block w-100" id="country" required>
+                      <option value="">Elija...</option>
+                      <option>Ciudad Autonoma de Buenos Aires</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      seleccione una provincia.
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="zip">Código Postal</label>
+                    <input type="text" class="form-control" id="zip" placeholder="" required>
+                    <div class="invalid-feedback">
+                      El código postal es requerido.
+                    </div>
+                  </div>
+                </div>
+                <hr class="mb-4">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="same-address">
+                  <label class="custom-control-label" for="same-address">La dirección de envío es la de facturación</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="save-info">
+                  <label class="custom-control-label" for="save-info">Guardar la información para la siguiente compra</label>
+                </div>
+                <hr class="mb-4">
+    
+                <h4 class="mb-3">Pago</h4>
+    
+                <div class="d-block my-3">
+                  <div class="custom-control custom-radio">
+                    <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                    <label class="custom-control-label" for="credit">Tarjeta de Crédito</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                    <label class="custom-control-label" for="debit">Transferencia</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                    <label class="custom-control-label" for="paypal">Efectivo</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="cc-name">Nombre en la tarjeta</label>
+                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                    <small class="text-muted">Nombre completo en la tarjeta</small>
+                    <div class="invalid-feedback">
+                      Es requerido
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="cc-number">Número de tarjeta</label>
+                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                    <div class="invalid-feedback">
+                      El número es requerido
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3 mb-3">
+                    <label for="cc-expiration">Fecha de expiración</label>
+                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Requerido
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="cc-expiration">CVV</label>
+                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Código de Seguridad
+                    </div>
+                  </div>
+                </div>
+                <hr class="mb-4">
+                <div class="col-md-12 bg-light text-right">
+                <button class="btn btn-primary btn-lg text-right" type="submit">Finalizar compra</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    
+
+
+        <footer class="bg-dark text-center text-white">
+            <!-- Grid container -->
+            <div class="container p-4">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-facebook-f"></i
+                ></a>
+        
+                <!-- Twitter -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-twitter"></i
+                ></a>
+        
+                <!-- Google -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-google"></i
+                ></a>
+        
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-instagram"></i
+                ></a>
+
+                <!-- Linkedin -->
+                <!--a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-linkedin-in"></i
+                ></a-->
+        
+                <!-- Github -->
+                <!--a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-github"></i
+                ></a-->
+            </section>
+            <!-- Section: Social media -->
+        
+            <!-- Section: Form -->
+            <section class="">
+                <form action="">
+                <!--Grid row-->
+>>>>>>> e807673cd276a6c013767f1228a2a30824c4e973
                 <div class="row d-flex justify-content-center">
                     <div class="col-5">
                         <h4 class="heading">Checkout</h4>

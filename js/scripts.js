@@ -23,6 +23,7 @@ class usuario {
     // Guarda el usuario en localstorage
     registrarUsuario()
     {
+
         localStorage.setItem('usuario', JSON.stringify(this));
     }
     // valida el usuario email y clave para el login
@@ -30,7 +31,7 @@ class usuario {
     {
         let datosusuario= localStorage.getItem('usuario')
         if (datosusuario != null){
-            datosusuario= JSON.parse(datosusuario)
+            datosusuario= JSON.parse(datosusuario);
         }
         else {
             datosusuario= new usuario("","", "","","",false);
@@ -233,7 +234,7 @@ function actualizarCarrito(){
 // Emite el alerta al finalizar la compra
 function finalizarCompra(){
     alert ("Gracias por su Compra");
-    location.href = 'https://tpgrupo1codoacodo.netlify.app/';
+    location.href = './index.html';
 }
 
 // Agrega un producto al carrito y lo redirecciona a la pagina
