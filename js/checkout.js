@@ -14,11 +14,11 @@ actualizarCarrito();
 const elementArticulosCheckout= document.getElementById("idcheckout");
 // Muestra en la pagina los cards con los articulos destacados 
 
-let htmlArticulosCheckout= "" ;
+var htmlArticulosCheckout= "" ;
 // Genera un string con los elementos htmls y estilos a agregar por cada destacado
-let vArticulosCheckout= carrito.getArticulos();
-if (vArticulosCheckout.length > 0){
-    vArticulosCheckout.forEach(articulo =>{ 
+let vArticulosCarrito= carrito.getArticulos();
+if (vArticulosCarrito.length > 0){
+    vArticulosCarrito.forEach(articulo =>{ 
         console.log(articulo);
 
         htmlArticulosCheckout += ' ' +
@@ -31,7 +31,7 @@ if (vArticulosCheckout.length > 0){
         '  <span class="text-muted">'+ articulo.precio * articulo.cantidad +'</span> ' +
         '</li> ' 
     });
-htmlArticulosCheckout +='' +
+htmlArticulosCheckout +=' ' +
 ' <ul class="list-group mb-3"> ' +
 ' <li> ' +
  '  <div>  ' +
@@ -82,7 +82,7 @@ if (carrito.getSumaTotal() > 0){
 htmlArticulosCheckout +=
 '</li>' +
 '</ul>';
-elementArticulosCheckout.innerHTML = htmlArticulosCheckout;
+elementArticulosCheckout.innerHTML =htmlArticulosCheckout;
 }
 
 
