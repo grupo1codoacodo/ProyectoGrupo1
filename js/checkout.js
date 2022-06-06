@@ -37,7 +37,7 @@ let articuloCheckout= `
         <h6 class="my-0"> ${articulo.codigo} </h6> 
         <small class="text-muted">${articulo.precio}</small> 
         </div> 
-         <span class="text-muted"> ${articulo.precio} * ${articulo.cantidad} </span>
+         <span class="text-muted"> ${articulo.precio * articulo.cantidad} </span>
         </li> 
         `;
     // Escribimos el contenido de la plantilla card en la etiqueta div que creamos (Texto - String)
