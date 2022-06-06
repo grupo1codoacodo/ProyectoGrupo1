@@ -11,28 +11,46 @@ function actualizarCarrito(){
 }
 actualizarCarrito();
 
-const elementArticulosCheckout= document.getElementById("idcheckout");
+// Obtenemos los datos del carrito
+let checkout = [];
+
+// Validamos que tenemos datos en el carrito en el storage
+if (localStorage.getItem("carrito")) {
+    carrito = JSON.parse(localStorage.getItem("carrito"));
+}
+
+
+const articulosCheckout = (articulos) => {
+let elementArticulosCheckout= document.getElementById("idcheckout");
 // Muestra en la pagina los cards con los articulos destacados 
+let total = 0
 
-var htmlArticulosCheckout= "" ;
-// Genera un string con los elementos htmls y estilos a agregar por cada destacado
-let vArticulosCarrito= carrito.getArticulos();
-if (vArticulosCarrito.length > 0){
-    vArticulosCarrito.forEach(articulo =>{ 
-        console.log(articulo);
+carrito.forEach  (articulo => {
 
-        htmlArticulosCheckout += ' ' +
-       ' <ul class="list-group mb-3"> ' +
-       ' <li class="list-group-item d-flex justify-content-between lh-condensed"> ' +
-        '  <div>  ' +
-        '   <h6 class="my-0">'+ articulo.codigo+ '</h6> ' +
-        '   <small class="text-muted">'+ articulo.precio+'</small> ' +
-        '  </div> ' +
-        '  <span class="text-muted">'+ articulo.precio * articulo.cantidad +'</span> ' +
-        '</li> ' 
-    });
-htmlArticulosCheckout +=' ' +
-' <ul class="list-group mb-3"> ' +
+    total += articulo.precio;
+    let checkoutProductos = document.createElement("div");
+    checkoutProductos.className = "card m-1";
+let articuloCheckout= `
+        <li class="list-group-item d-flex justify-content-between lh-condensed"> 
+        <div>
+        <h6 class="my-0"> ${articulo.codigo} </h6> 
+        <small class="text-muted">${articulo.precio}</small> 
+        </div> 
+         <span class="text-muted"> ${articulo.precio} * ${articulo.cantidad} </span>
+        </li> 
+        `;
+    // Escribimos el contenido de la plantilla card en la etiqueta div que creamos (Texto - String)
+checkoutProductos.innerHTML = articuloCheckout;
+elementArticulosCheckout.appendChild(checkoutProductos);
+});
+
+guardarEnStorage("precioTotal", total);
+}
+
+articulosCheckout (carrito);
+
+
+/*' <ul class="list-group mb-3"> ' +
 ' <li> ' +
  '  <div>  ' +
  '   <h6> </h6> ' +
@@ -84,5 +102,5 @@ htmlArticulosCheckout +=
 '</ul>';
 elementArticulosCheckout.innerHTML =htmlArticulosCheckout;
 }
-
+*/
 
