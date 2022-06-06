@@ -29,7 +29,8 @@ carrito.forEach  (articulo => {
 
     total += articulo.precio;
     let checkoutProductos = document.createElement("div");
-    checkoutProductos.className = "card m-1";
+    checkoutProductos.className = "my-0";
+
 let articuloCheckout= `
         <li class="list-group-item d-flex justify-content-between lh-condensed"> 
         <div>
